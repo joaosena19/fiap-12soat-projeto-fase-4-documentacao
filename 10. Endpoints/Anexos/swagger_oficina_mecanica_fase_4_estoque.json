@@ -1,0 +1,528 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Oficina Mecânica API",
+    "description": "API para gerenciamento de oficina mecânica",
+    "contact": {
+      "name": "João Dainese",
+      "email": "joaosenadainese@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/estoque/itens": {
+      "get": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Buscar todos os itens de estoque",
+        "responses": {
+          "200": {
+            "description": "Lista de itens de estoque retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RetornoItemEstoqueDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Criar um novo item de estoque",
+        "requestBody": {
+          "description": "Dados do item de estoque a ser criado",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarItemEstoqueDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarItemEstoqueDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarItemEstoqueDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item de estoque criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoItemEstoqueDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos fornecidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/estoque/itens/{id}": {
+      "get": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Buscar item de estoque por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do item de estoque",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item de estoque encontrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoItemEstoqueDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item de estoque não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Atualizar um item de estoque existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do item de estoque a ser atualizado",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados do item de estoque a ser atualizado",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarItemEstoqueDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarItemEstoqueDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarItemEstoqueDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item de estoque atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoItemEstoqueDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos fornecidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item de estoque não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/estoque/itens/{id}/quantidade": {
+      "patch": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Atualizar apenas a quantidade de um item de estoque",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do item de estoque",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Nova quantidade do item de estoque",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarQuantidadeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarQuantidadeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarQuantidadeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quantidade atualizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoItemEstoqueDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos fornecidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item de estoque não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/estoque/itens/{id}/disponibilidade": {
+      "get": {
+        "tags": [
+          "EstoqueItem"
+        ],
+        "summary": "Verificar disponibilidade de um item de estoque",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do item de estoque",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "quantidadeRequisitada",
+            "in": "query",
+            "description": "Quantidade necessária para verificação",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verificação realizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetornoDisponibilidadeDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos fornecidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item de estoque não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AtualizarItemEstoqueDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoItemEstoque": {
+            "$ref": "#/components/schemas/TipoItemEstoqueEnum"
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AtualizarQuantidadeDto": {
+        "type": "object",
+        "properties": {
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarItemEstoqueDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoItemEstoque": {
+            "$ref": "#/components/schemas/TipoItemEstoqueEnum"
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Mensagem de erro",
+            "nullable": true,
+            "example": "Mensagem de erro"
+          },
+          "statusCode": {
+            "type": "integer",
+            "description": "Código de status HTTP",
+            "format": "int32",
+            "example": 400
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para respostas de erro padronizadas da API"
+      },
+      "RetornoDisponibilidadeDto": {
+        "type": "object",
+        "properties": {
+          "disponivel": {
+            "type": "boolean"
+          },
+          "quantidadeEmEstoque": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantidadeSolicitada": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetornoItemEstoqueDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoItemEstoque": {
+            "type": "string",
+            "nullable": true
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoItemEstoqueEnum": {
+        "enum": [
+          "Peca",
+          "Insumo"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
