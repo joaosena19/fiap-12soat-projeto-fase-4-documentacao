@@ -20,7 +20,7 @@ A escolha foi feita de acordo com a natureza dos dados de cada serviço:
 
 3. **Ordem de Serviço (MongoDB/DocumentDB):** A Ordem de Serviço encaixa muito bem com um banco documental NoSQL. As associações com a OS são em maioria associações filhas (itens incluídos, serviços incluídos, orçamento), o que mapeia naturalmente para um documento embarcado. Além disso, o documento resolve naturalmente o problema de imutabilidade temporal que tínhamos na fase 3, onde era necessário ter tabelas separadas de `itens_incluidos` e `servicos_incluidos` para manter snapshots fixados em um ponto no tempo. Com MongoDB, esses dados já ficam embarcados no documento da OS.
 
-Veja mais em [Banco de dados - Cadastro](../3.%20Banco%20de%20dados/1_banco_de_dados_cadastro.md), [Banco de dados - Estoque](../3.%20Banco%20de%20dados/2_banco_de_dados_estoque.md) e [Banco de dados - Ordem de Serviço](../3.%20Banco%20de%20dados/3_banco_de_dados_ordem_servico.md).
+Veja mais em [Banco de dados - Cadastro](../03.%20Banco%20de%20dados/1_banco_de_dados_cadastro.md), [Banco de dados - Estoque](../03.%20Banco%20de%20dados/2_banco_de_dados_estoque.md) e [Banco de dados - Ordem de Serviço](../03.%20Banco%20de%20dados/3_banco_de_dados_ordem_servico.md).
 
 ## Decisão
 

@@ -4,7 +4,7 @@
 
 A autenticação na fase 4 funciona da mesma forma que na fase 3. O fluxo foi mantido intacto pois funcionava perfeitamente e não havia motivo para alterá-lo.
 
-A única diferença é que o Auth Lambda agora conecta no banco de dados do microsserviço de Cadastro ao invés do banco compartilhado do monolito. Veja mais em [ADR 0005 - Auth Lambda Conectado ao Cadastro](../9.%20ADRs/0005_adr_auth_lambda_conectado_ao_cadastro.md).
+A única diferença é que o Auth Lambda agora conecta no banco de dados do microsserviço de Cadastro ao invés do banco compartilhado do monolito. Veja mais em [ADR 0005 - Auth Lambda Conectado ao Cadastro](../09.%20ADRs/0005_adr_auth_lambda_conectado_ao_cadastro.md).
 
 ## Fluxo de Autenticação
 
@@ -41,8 +41,8 @@ Na comunicação entre microsserviços, adotamos o padrão de **Forward Token**.
 
 Isso permite que cada serviço destino saiba quem é o usuário original e aplique suas próprias validações de RBAC e ownership.
 
-Veja mais em [ADR 0006 - Geração de Token no Lambda e Forward Token](../9.%20ADRs/0006_adr_geracao_token_lambda_e_forward_token.md).
+Veja mais em [ADR 0006 - Geração de Token no Lambda e Forward Token](../09.%20ADRs/0006_adr_geracao_token_lambda_e_forward_token.md).
 
 ---
-Anterior: [Diagrama de componentes](../2.%20Diagrama%20de%20componentes%20%28C4%29/1_diagrama_de_componentes.md)  
-Próximo: [Comunicação síncrona](../7.%20Comunicação%20entre%20serviços/1_comunicacao_sincrona.md)
+Anterior: [Diagrama de componentes](../02.%20Diagrama%20de%20componentes%20%28C4%29/1_diagrama_de_componentes.md)  
+Próximo: [Comunicação síncrona](../07.%20Comunicação%20entre%20serviços/1_comunicacao_sincrona.md)

@@ -26,12 +26,12 @@ A comunicação síncrona entre os microsserviços é feita via chamadas HTTP RE
 
 Todas essas chamadas são **GETs** que precisam da resposta no momento exato para compor a OS, ou **POSTs** que são idempotentes (busca antes de criar). Não faz sentido torná-las assíncronas, pois o use case depende do retorno imediato para continuar o processamento.
 
-Os POSTs que o `CriarOrdemServicoCompletaUseCase` faz para criar clientes e veículos são idempotentes por natureza: antes de criar, o use case busca pelo documento/placa, e se já existir, reutiliza o registro. Veja mais em [ADR 0008 - Idempotência na Criação de OS Completa](../9.%20ADRs/0008_adr_idempotencia_criacao_os_completa.md).
+Os POSTs que o `CriarOrdemServicoCompletaUseCase` faz para criar clientes e veículos são idempotentes por natureza: antes de criar, o use case busca pelo documento/placa, e se já existir, reutiliza o registro. Veja mais em [ADR 0008 - Idempotência na Criação de OS Completa](../09.%20ADRs/0008_adr_idempotencia_criacao_os_completa.md).
 
 ## Nota sobre redução de estoque
 
 A **redução de estoque** ao iniciar a execução de uma OS **não** é feita por comunicação síncrona. É o único cenário que exige consistência eventual entre serviços, e por isso é tratado via comunicação assíncrona (SAGA coreografada). Veja mais em [Comunicação assíncrona e SAGA](2_comunicacao_assincrona_saga.md).
 
 ---
-Anterior: [Autenticação](../4.%20Autenticação/1_autenticacao.md)  
+Anterior: [Autenticação](../04.%20Autenticação/1_autenticacao.md)  
 Próximo: [Comunicação assíncrona e SAGA](2_comunicacao_assincrona_saga.md)

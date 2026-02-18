@@ -106,5 +106,5 @@ A análise do SonarCloud é iniciada antes do build e finalizada após os testes
 Os deploys são realizados via `workflow_dispatch` (gatilho manual no GitHub Actions). A automação do processo é completa (build, push de imagem, provisionamento de infra, deploy no cluster), mas o gatilho é manual para evitar deploys prematuros durante o desenvolvimento.
 
 ---
-Anterior: [Banco de dados - Ordem de Serviço](../3.%20Banco%20de%20dados/3_banco_de_dados_ordem_servico.md)  
-Próximo: [Plano de monitoramento](../6.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md)
+Anterior: [Banco de dados - Ordem de Serviço](../03.%20Banco%20de%20dados/3_banco_de_dados_ordem_servico.md)  
+Próximo: [Plano de monitoramento](../06.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md)

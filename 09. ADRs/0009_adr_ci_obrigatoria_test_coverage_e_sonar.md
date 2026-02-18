@@ -22,7 +22,7 @@ A implementação foi feita em cada repositório com uma pipeline `pr-validation
 
 O CI Gate é o job que a proteção de branch referencia. O PR só pode ser mergeado se o CI Gate passar com sucesso, garantindo que tanto os testes quanto o Sonar foram aprovados.
 
-Veja mais em [CI/CD](../5.%20CI%20%26%20CD/1_ci_cd.md).
+Veja mais em [CI/CD](../05.%20CI%20%26%20CD/1_ci_cd.md).
 
 ## Decisão
 

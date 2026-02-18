@@ -10,7 +10,7 @@ Essa operação é feita via **mensageria** (Amazon SQS com MassTransit) usando 
 
 Como temos **apenas um cenário de SAGA**, a orquestração seria desnecessária. Um orquestrador central adicionaria complexidade de infraestrutura sem benefícios neste cenário.
 
-Veja mais em [ADR 0003 - SAGA Coreografada](../9.%20ADRs/0003_adr_saga_coreografada.md).
+Veja mais em [ADR 0003 - SAGA Coreografada](../09.%20ADRs/0003_adr_saga_coreografada.md).
 
 ## Fluxo da SAGA
 
@@ -95,8 +95,8 @@ Isso cobre o cenário onde a mensagem de resultado se perdeu ou o serviço de Es
 
 ## Monitoramento
 
-Toda a SAGA é monitorada através de custom events no New Relic e CorrelationId propagado entre as mensagens. Veja mais em [Plano de monitoramento](../6.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md).
+Toda a SAGA é monitorada através de custom events no New Relic e CorrelationId propagado entre as mensagens. Veja mais em [Plano de monitoramento](../06.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md).
 
 ---
 Anterior: [Comunicação síncrona](1_comunicacao_sincrona.md)  
-Próximo: [ADR 0001 - Divisão em Microsserviços](../9.%20ADRs/0001_adr_divisao_em_microsservicos.md)
+Próximo: [ADR 0001 - Divisão em Microsserviços](../09.%20ADRs/0001_adr_divisao_em_microsservicos.md)

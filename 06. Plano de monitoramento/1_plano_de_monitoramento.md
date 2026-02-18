@@ -292,5 +292,5 @@ SELECT average(DuracaoMs) / 1000 / 60 / 60 as 'Horas' FROM OrdemServicoMudancaSt
 ```
 
 ---
-Anterior: [CI/CD](../5.%20CI%20%26%20CD/1_ci_cd.md)  
-Próximo: [Qualidade - Cadastro](../8.%20Testes%20e%20qualidade/1_qualidade_cadastro.md)
+Anterior: [CI/CD](../05.%20CI%20%26%20CD/1_ci_cd.md)  
+Próximo: [Qualidade - Cadastro](../08.%20Testes%20e%20qualidade/1_qualidade_cadastro.md)

@@ -52,5 +52,5 @@ Além deles, foram mantidos os repositórios de infraestrutura, autenticação L
 * Comunicação entre serviços exige tratamento de falhas e latência de rede.
 
 ---
-Anterior: [Comunicação assíncrona e SAGA](../7.%20Comunicação%20entre%20serviços/2_comunicacao_assincrona_saga.md)  
+Anterior: [Comunicação assíncrona e SAGA](../07.%20Comunicação%20entre%20serviços/2_comunicacao_assincrona_saga.md)  
 Próximo: [ADR 0002 - Comunicação entre Serviços via NLB](0002_adr_comunicacao_entre_servicos_via_nlb.md)

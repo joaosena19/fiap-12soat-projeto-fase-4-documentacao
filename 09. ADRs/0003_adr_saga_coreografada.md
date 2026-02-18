@@ -20,7 +20,7 @@ A **coreografia** resolve o problema de forma mais simples e adequada para o esc
 
 Foi decidido utilizar SAGA coreografada para o fluxo de redução de estoque.
 
-Veja mais em [Comunicação assíncrona e SAGA](../7.%20Comunicação%20entre%20serviços/2_comunicacao_assincrona_saga.md).
+Veja mais em [Comunicação assíncrona e SAGA](../07.%20Comunicação%20entre%20serviços/2_comunicacao_assincrona_saga.md).
 
 ## Consequências
 

@@ -20,7 +20,7 @@ A documentação está organizada em pastas e arquivos Markdown numerados para f
 
 Além disso, cada arquivo contém links de navegação para os próximos conteúdos. Apenas clicando em "Próximo" no final de cada arquivo você irá navegar por toda a documentação em ordem lógica.
 
-[Comece por aqui](./1.%20Entrega/1_introducao.md)
+[Comece por aqui](./01.%20Entrega/1_introducao.md)
 
 # Vídeo de apresentação
 

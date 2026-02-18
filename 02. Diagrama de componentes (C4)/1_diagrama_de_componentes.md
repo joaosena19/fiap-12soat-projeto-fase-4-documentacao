@@ -33,5 +33,5 @@ Este é um Diagrama de Componentes que cobre as visões HLD e LLD usando o model
 ![Componente Estoque](Anexos/c3_estoque.svg)
 
 ---
-Anterior: [Índice](../1.%20Entrega/2_indice.md)  
-Próximo: [Autenticação](../4.%20Autenticação/1_autenticacao.md)
+Anterior: [Índice](../01.%20Entrega/2_indice.md)  
+Próximo: [Autenticação](../04.%20Autenticação/1_autenticacao.md)

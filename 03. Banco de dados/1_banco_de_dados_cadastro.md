@@ -35,5 +35,5 @@ Eventualmente, clientes e usuários podem estar ligados de forma fraca através 
 `servicos` é um catálogo de todos os serviços disponíveis na oficina, com nome, descrição e preço.
 
 ---
-Anterior: [ADR 0010 - Infraestrutura Geral e Banco por Serviço](../9.%20ADRs/0010_adr_infraestrutura_geral_e_banco_por_servico.md)  
+Anterior: [ADR 0010 - Infraestrutura Geral e Banco por Serviço](../09.%20ADRs/0010_adr_infraestrutura_geral_e_banco_por_servico.md)  
 Próximo: [Banco de dados - Estoque](2_banco_de_dados_estoque.md)
