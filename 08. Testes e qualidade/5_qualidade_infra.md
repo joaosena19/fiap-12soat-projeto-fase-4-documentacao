@@ -6,10 +6,6 @@ Veja o [relatório completo no SonarCloud](https://sonarcloud.io/project/overvie
 
 ![SonarCloud - Infraestrutura](Anexos/sonar_infra.png)
 
-Todas as issues de severidade **Major** foram resolvidas. Algumas issues foram tratadas da seguinte forma:
-
-- **Falsos positivos:** Issues relacionadas a keys/secrets supostamente expostas foram marcadas como falso positivo, pois os valores são injetados via **variáveis de ambiente** e não estão hardcoded no código.
-
 ## Test Coverage
 
 O repositório de infraestrutura não possui testes unitários, pois é composto apenas por módulos Terraform.
