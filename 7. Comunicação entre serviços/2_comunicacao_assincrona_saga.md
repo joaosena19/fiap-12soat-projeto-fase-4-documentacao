@@ -8,7 +8,7 @@ Essa operação é feita via **mensageria** (Amazon SQS com MassTransit) usando 
 
 ## Por que coreografia e não orquestração?
 
-Como temos **apenas um cenário de SAGA**, a orquestração seria desnecessária. Um orquestrador central adicionaria complexidade de infraestrutura sem benefícios neste cenáriol.
+Como temos **apenas um cenário de SAGA**, a orquestração seria desnecessária. Um orquestrador central adicionaria complexidade de infraestrutura sem benefícios neste cenário.
 
 Veja mais em [ADR 0003 - SAGA Coreografada](../9.%20ADRs/0003_adr_saga_coreografada.md).
 
@@ -23,7 +23,7 @@ A OS é marcada internamente com `InteracaoEstoque.AguardandoReducao()` e o stat
 ### 2. Processamento no serviço de Estoque
 
 O `ReducaoEstoqueSolicitacaoConsumer` no serviço de Estoque recebe a mensagem e:
-    
+
 1. **Valida** que todos os itens existem e têm estoque suficiente
 2. **Reduz** o estoque de cada item
 3. **Publica** uma mensagem `ReducaoEstoqueResultado` com `Sucesso = true`
