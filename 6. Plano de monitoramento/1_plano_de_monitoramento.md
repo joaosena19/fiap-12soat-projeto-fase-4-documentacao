@@ -133,7 +133,7 @@ Eventos da fase 3, sobre ciclo de vida da OS, também foram mantidos
 ### Dashboard completo
 Este é o dashboard de monitoramento da aplicação no New Relic, que o mesmo padrão da fase 3, mas adicionando alguns widgets novos relacionados à SAGA, adiciona variável seletora de aplicação, e altera as queries para lideram com mais de uma aplicação.
 
-![[screencapture-one-newrelic-dashboards-detail-NzQ4MDY5MHxWSVp8REFTSEJPQVJEfGRhOjEyMTAxNTg4-2026-02-17-14_30_27.png]]
+![Dashboard Geral](Anexos/dashboard_geral.png)
 
 ### Novos Widgets
 
@@ -143,7 +143,7 @@ Estes foram os novos widgets criados para monitoramento da SAGA
 
 Monitora mensagens que estão sendo disparadas relacianadas as SAGAS. É criado na aplicação através dos Custom Events `SagaEstoqueConfirmado`, `SagaCompensacaoFalhaEstoque`, `SagaCompensacaoTimeout` e `SagaCompensacaoFalhaCritica`.
 
-![[Pasted image 20260217142820.png]]
+![Mensagens da Saga](Anexos/saga_mensagens.png)
 
 **Query:**
 ```sql
@@ -154,7 +154,7 @@ SELECT count(*) FROM SagaEstoqueConfirmado, SagaCompensacaoFalhaEstoque, SagaCom
 
 Monitora compensações realizadas pela SAGAS. É criado na aplicação através dos Custom Events `SagaCompensacaoFalhaEstoque`, `SagaCompensacaoTimeout`.
 
-![[Pasted image 20260217142850.png]]
+![Compensações Executadas](Anexos/saga_compensacoes.png)
 
 **Query:**
 ```sql
@@ -165,7 +165,7 @@ SELECT count(*) as 'Compensações' FROM SagaCompensacaoFalhaEstoque, SagaCompen
 
 Monitora compensações que falharam em compensar, o que é uma falha crítica pois gera dados inconsistentes nos bancos. É criado na aplicação através dos Custom Events `SagaCompensacaoFalhaCritica`.
 
-![[Pasted image 20260217142923.png]]
+![Compensações que Falharam](Anexos/saga_falhas_criticas.png)
 
 **Query:**
 ```sql
@@ -176,7 +176,7 @@ SELECT timestamp, ordemServicoId, erro, correlationId FROM SagaCompensacaoFalhaC
 
 Foi adicionado uma variável seletora de aplicação, que filtra os widgets do dashboard para as aplicações escolhidas.
 
-![[Pasted image 20260217143951.png]]
+![Seletor de Aplicação](Anexos/seletor_aplicacao.png)
 
 ### Alertas
 
@@ -187,31 +187,109 @@ Temos 3 alertas configurados no New Relic:
 3 - **Saga - Falha Crítica de Consistência**, que notifica caso acontece qualquer falha na compensação, pois é uma situação crítica que gerou dados inconsistentes nos bancos.
 
 
-![[Pasted image 20260217164526.png]]
+![Alerta New Relic](Anexos/alerta_new_relic.png)
 
 ### Widgets antigos
 
-Estes são os mesmos widgets da fase 3, apenas adaptados para multi-aplicações: 
+Estes são os mesmos widgets da fase 3, adaptados para multi-aplicações com variável seletora `{{appName}}` e `FACET` por aplicação.
 
-healthchek e uptime
-![[Pasted image 20260217162032.png]]
+#### Healthcheck & Uptime
 
-recursos k8s
-![[Pasted image 20260217162106.png]]
+Monitora a disponibilidade da API através da taxa de sucesso das requisições, indicando se a aplicação está conseguindo atender às requisições.
 
-limite hpa
-![[Pasted image 20260217162124.png]]
-latencia das apis
-![[Pasted image 20260217162147.png]]
+![Healthcheck & Uptime](Anexos/health_check_uptime.png)
 
-log de erros recentes
-![[Pasted image 20260217162217.png]]
+**Query:**
+```sql
+SELECT percentage(count(*), WHERE httpResponseCode NOT LIKE '5%') as 'Disponibilidade' FROM Transaction WHERE appName IN ({{appName}}) FACET appName SINCE 1 hour ago TIMESERIES
+```
 
-top erros 4xx
-![[Pasted image 20260217162237.png]]
+#### Recursos K8s
 
-volume diário de ordens de serviço
-![[Pasted image 20260217162310.png]]
+Acompanha o consumo percentual de CPU e Memória dos containers em relação aos limites (limits) definidos no Kubernetes.
 
-tempo médio
-![[Pasted image 20260217162334.png]]
+![Recursos K8s](Anexos/recursos_k8s_.png)
+
+**Query:**
+```sql
+SELECT (max(cpuUsedCores) / max(cpuLimitCores)) * 100 as 'CPU %', (max(memoryWorkingSetBytes) / max(memoryLimitBytes)) * 100 as 'Memória %' FROM K8sContainerSample WHERE containerName IN ('ordemservico-service', 'estoque-service', 'cadastro-service') FACET containerName SINCE 1 hour ago TIMESERIES
+```
+
+#### Limite HPA
+
+Monitora a quantidade de pods ativos e o limite configurado no HPA.
+
+![Limite HPA](Anexos/limite_hpa.png)
+
+**Query 1:**
+```sql
+SELECT uniqueCount(podName) as 'Pods Ativos' FROM K8sPodSample WHERE deploymentName IN ('ordemservico-service', 'estoque-service', 'cadastro-service') AND status = 'Running' FACET deploymentName SINCE 1 hour ago TIMESERIES
+```
+
+**Query 2:**
+```sql
+SELECT 5 as 'Limite HPA' FROM K8sPodSample SINCE 1 hour ago TIMESERIES
+```
+
+#### Latência das APIs
+
+Exibe o tempo médio de resposta das transações.
+
+![Latência das APIs](Anexos/latencia_apis_.png)
+
+**Query:**
+```sql
+SELECT average(duration) * 1000 as 'Latência (ms)' FROM Transaction WHERE appName IN ({{appName}}) FACET appName TIMESERIES
+```
+
+#### Log de Erros Recentes
+
+Lista os últimos 50 erros e falhas críticos registrados nos logs da aplicação, útil para monitorar erros imediatos.
+
+![Log de Erros Recentes](Anexos/erros_recentes.png)
+
+**Query:**
+```sql
+SELECT timestamp, message, UseCase, ErrorType FROM Log WHERE level = 'Error' AND application IN ({{appName}}) SINCE 1 day ago LIMIT 50
+```
+
+#### Top Erros 4xx
+
+Este widget mostra os erros 4xx mais frequentes na aplicação. São erros tratados causados por requisições inválidas dos clientes. É útil para descobrirmos onde os clientes estão errando e melhorar a usabilidade do sistema.
+
+![Top Erros 4xx](Anexos/top_erros_4xx.png)
+
+**Query:**
+```sql
+SELECT count(*) as 'Ocorrências' FROM Log WHERE (level = 'INFORMATION' OR level = 'Information' OR level = 'info') AND application IN ({{appName}}) AND trace.id IN (SELECT traceId FROM Transaction WHERE http.statusCode >= 400 AND http.statusCode < 500 LIMIT MAX) FACET message_template SINCE 1 week ago LIMIT 10
+```
+
+#### Volume diário de ordens de serviço
+
+Contabiliza novas ordens de serviço criadas diariamente, comparando com a semana anterior para medir a tendência de demanda do negócio.
+
+É criado na aplicação através do Custom Event `OrdemServicoCriada`.
+
+![Volume diário de ordens de serviço](Anexos/volume_ordens_servico.png)
+
+**Query:**
+```sql
+SELECT count(*) as 'Qtd Ordens' FROM OrdemServicoCriada SINCE 1 week ago TIMESERIES 1 day COMPARE WITH 1 week ago
+```
+
+#### Tempo médio de execução de ordens de serviço por status
+
+Calcula o tempo médio que uma OS permanece em certos status antes de avançar. Status analisados: 'Em Diagnóstico', 'Em Execução', 'Finalizada'.
+
+É criado na aplicação através do Custom Event `OrdemServicoMudancaStatus`.
+
+![Tempo médio de execução de ordens de serviço por status](Anexos/tempo_medio.png)
+
+**Query:**
+```sql
+SELECT average(DuracaoMs) / 1000 / 60 / 60 as 'Horas' FROM OrdemServicoMudancaStatus FACET StatusAnterior SINCE 1 week ago
+```
+
+---
+Anterior: [CI/CD](../5.%20CI%20%26%20CD/1_ci_cd.md)
+Próximo: [Qualidade - Cadastro](../8.%20Testes%20e%20qualidade/1_qualidade_cadastro.md)
