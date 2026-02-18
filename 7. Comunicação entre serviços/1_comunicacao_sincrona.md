@@ -33,5 +33,5 @@ Os POSTs que o `CriarOrdemServicoCompletaUseCase` faz para criar clientes e veí
 A **redução de estoque** ao iniciar a execução de uma OS **não** é feita por comunicação síncrona. É o único cenário que exige consistência eventual entre serviços, e por isso é tratado via comunicação assíncrona (SAGA coreografada). Veja mais em [Comunicação assíncrona e SAGA](2_comunicacao_assincrona_saga.md).
 
 ---
-Anterior: [Autenticação](../4.%20Autenticação/1_autenticacao.md)
+Anterior: [Autenticação](../4.%20Autenticação/1_autenticacao.md)  
 Próximo: [Comunicação assíncrona e SAGA](2_comunicacao_assincrona_saga.md)

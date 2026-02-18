@@ -41,5 +41,5 @@ Foi decidido implementar validação obrigatória de test coverage ≥ 80% e Son
 * Atraso em hotfixes urgentes caso diminuam a qualidade, mas é um trade-off aceitável para garantir a saúde do código a longo prazo.
 
 ---
-Anterior: [ADR 0008 - Idempotência na Criação de OS Completa](0008_adr_idempotencia_criacao_os_completa.md)
-Próximo: [Banco de dados - Cadastro](../3.%20Banco%20de%20dados/1_banco_de_dados_cadastro.md)
+Anterior: [ADR 0008 - Idempotência na Criação de OS Completa](0008_adr_idempotencia_criacao_os_completa.md)  
+Próximo: [ADR 0010 - Infraestrutura Geral e Banco por Serviço](0010_adr_infraestrutura_geral_e_banco_por_servico.md)

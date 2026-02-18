@@ -39,5 +39,5 @@ Foi decidido manter a geração de token no Lambda e adotar Forward Token para c
 * Se o token expirar durante uma cadeia de chamadas longa, a requisição pode falhar no meio. Na prática, isso não é um problema pois o tempo de vida do token é muito maior que o tempo das chamadas.
 
 ---
-Anterior: [ADR 0005 - Auth Lambda Conectado ao Cadastro](0005_adr_auth_lambda_conectado_ao_cadastro.md)
+Anterior: [ADR 0005 - Auth Lambda Conectado ao Cadastro](0005_adr_auth_lambda_conectado_ao_cadastro.md)  
 Próximo: [ADR 0007 - Replicação Manual da Classe Ator](0007_adr_replicacao_manual_da_classe_ator.md)

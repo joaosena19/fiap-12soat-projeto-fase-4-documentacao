@@ -113,14 +113,6 @@ Com isso, uma busca por `CorrelationId = "abc-123"` no **New Relic** retorna tod
 
 A saga coreografada de redução de estoque é monitorada através de **custom events do New Relic**, registrados pela implementação `NewRelicMetricsService` (interface `IMetricsService`). Cada evento é enviado via `NewRelic.RecordCustomEvent()` com atributos contextuais.
 
-### Outros custom events
-Eventos da fase 3, sobre ciclo de vida da OS, também foram mantidos
-
-| Evento | Quando é disparado | Atributos |
-|--------|-------------------|-----------|
-| `OrdemServicoCriada` | Ao criar uma nova OS | `OrdemServicoId`, `ClienteId`, `UsuarioId` |
-| `OrdemServicoMudancaStatus` | A cada transição de status | `OrdemServicoId`, `StatusAnterior`, `StatusNovo`, `DuracaoMs` |
-
 ### Eventos de Saga (redução de estoque)
 
 | Evento | Quando é disparado | Atributos |
@@ -129,6 +121,15 @@ Eventos da fase 3, sobre ciclo de vida da OS, também foram mantidos
 | `SagaCompensacaoFalhaEstoque` | Estoque recusado (insuficiente, erro, etc.) | `ordemServicoId`, `motivo`, `correlationId`, `timestamp` |
 | `SagaCompensacaoTimeout` | Background service detectou timeout (90s) | `ordemServicoId`, `motivo`, `dataInicioExecucao`, `sucesso` |
 | `SagaCompensacaoFalhaCritica` | Erro ao executar a compensação | `ordemServicoId`, `erro`, `correlationId`, `timestamp` |
+
+### Outros custom events
+Eventos da fase 3, sobre ciclo de vida da OS, também foram mantidos
+
+| Evento | Quando é disparado | Atributos |
+|--------|-------------------|-----------|
+| `OrdemServicoCriada` | Ao criar uma nova OS | `OrdemServicoId`, `ClienteId`, `UsuarioId` |
+| `OrdemServicoMudancaStatus` | A cada transição de status | `OrdemServicoId`, `StatusAnterior`, `StatusNovo`, `DuracaoMs` |
+
 ## Dashboard New Relic
 ### Dashboard completo
 Este é o dashboard de monitoramento da aplicação no New Relic, que o mesmo padrão da fase 3, mas adicionando alguns widgets novos relacionados à SAGA, adiciona variável seletora de aplicação, e altera as queries para lideram com mais de uma aplicação.
@@ -182,8 +183,8 @@ Foi adicionado uma variável seletora de aplicação, que filtra os widgets do d
 
 Temos 3 alertas configurados no New Relic:
 
-1 - **Erro - Ordem de Serviço**, que notifica caso hajam erros envolvendo use cases da Ordem de Serviço
-2 - **Saga - Alta Taxa de Rollbacks**, que notifica caso estejamos tendo muitas compensações via SAGA
+1 - **Erro - Ordem de Serviço**, que notifica caso hajam erros envolvendo use cases da Ordem de Serviço  
+2 - **Saga - Alta Taxa de Rollbacks**, que notifica caso estejamos tendo muitas compensações via SAGA  
 3 - **Saga - Falha Crítica de Consistência**, que notifica caso acontece qualquer falha na compensação, pois é uma situação crítica que gerou dados inconsistentes nos bancos.
 
 
@@ -291,5 +292,5 @@ SELECT average(DuracaoMs) / 1000 / 60 / 60 as 'Horas' FROM OrdemServicoMudancaSt
 ```
 
 ---
-Anterior: [CI/CD](../5.%20CI%20%26%20CD/1_ci_cd.md)
+Anterior: [CI/CD](../5.%20CI%20%26%20CD/1_ci_cd.md)  
 Próximo: [Qualidade - Cadastro](../8.%20Testes%20e%20qualidade/1_qualidade_cadastro.md)

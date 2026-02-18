@@ -33,5 +33,5 @@ Foi decidido manter o Auth Lambda acessando diretamente o banco de dados do micr
 * Em um cenário ideal, a identidade seria um serviço independente.
 
 ---
-Anterior: [ADR 0004 - Banco de Dados por Serviço](0004_adr_banco_de_dados_por_servico.md)
+Anterior: [ADR 0004 - Banco de Dados por Serviço](0004_adr_banco_de_dados_por_servico.md)  
 Próximo: [ADR 0006 - Geração de Token no Lambda e Forward Token](0006_adr_geracao_token_lambda_e_forward_token.md)

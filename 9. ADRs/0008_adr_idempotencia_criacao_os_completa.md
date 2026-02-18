@@ -47,5 +47,5 @@ Foi decidido que falhas parciais na criação de OS completa são aceitáveis e 
 * Nenhum ponto negativo identificado. O que poderia acontecer é o cliente ou veículo ficar cadastrado sem uma OS associada ainda, o que é um estado perfeitamente válido.
 
 ---
-Anterior: [ADR 0007 - Replicação Manual da Classe Ator](0007_adr_replicacao_manual_da_classe_ator.md)
+Anterior: [ADR 0007 - Replicação Manual da Classe Ator](0007_adr_replicacao_manual_da_classe_ator.md)  
 Próximo: [ADR 0009 - CI Obrigatória com Test Coverage e SonarCloud](0009_adr_ci_obrigatoria_test_coverage_e_sonar.md)

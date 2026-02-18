@@ -35,5 +35,5 @@ Veja mais em [Comunicação assíncrona e SAGA](../7.%20Comunicação%20entre%20
 * Se no futuro surgirem muitos cenários de SAGA, a coreografia pode ficar difícil de rastrear sem um orquestrador. Para o momento, com apenas um cenário, isso não é um problema.
 
 ---
-Anterior: [ADR 0002 - Comunicação entre Serviços via NLB](0002_adr_comunicacao_entre_servicos_via_nlb.md)
+Anterior: [ADR 0002 - Comunicação entre Serviços via NLB](0002_adr_comunicacao_entre_servicos_via_nlb.md)  
 Próximo: [ADR 0004 - Banco de Dados por Serviço](0004_adr_banco_de_dados_por_servico.md)

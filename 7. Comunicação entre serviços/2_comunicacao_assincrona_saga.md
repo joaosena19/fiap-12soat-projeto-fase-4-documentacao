@@ -98,5 +98,5 @@ Isso cobre o cenário onde a mensagem de resultado se perdeu ou o serviço de Es
 Toda a SAGA é monitorada através de custom events no New Relic e CorrelationId propagado entre as mensagens. Veja mais em [Plano de monitoramento](../6.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md).
 
 ---
-Anterior: [Comunicação síncrona](1_comunicacao_sincrona.md)
+Anterior: [Comunicação síncrona](1_comunicacao_sincrona.md)  
 Próximo: [ADR 0001 - Divisão em Microsserviços](../9.%20ADRs/0001_adr_divisao_em_microsservicos.md)

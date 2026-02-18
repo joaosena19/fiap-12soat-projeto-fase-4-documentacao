@@ -44,5 +44,5 @@ Isso permite que cada serviço destino saiba quem é o usuário original e apliq
 Veja mais em [ADR 0006 - Geração de Token no Lambda e Forward Token](../9.%20ADRs/0006_adr_geracao_token_lambda_e_forward_token.md).
 
 ---
-Anterior: [Diagrama de componentes](../2.%20Diagrama%20de%20componentes%20%28C4%29/1_diagrama_de_componentes.md)
+Anterior: [Diagrama de componentes](../2.%20Diagrama%20de%20componentes%20%28C4%29/1_diagrama_de_componentes.md)  
 Próximo: [Comunicação síncrona](../7.%20Comunicação%20entre%20serviços/1_comunicacao_sincrona.md)

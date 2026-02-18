@@ -21,5 +21,5 @@ Foi adotada uma abordagem code-first, assim como nos outros serviços.
 `itens_estoque` é a única tabela do banco. Armazena o catálogo de todos os itens disponíveis com nome, descrição, preço, quantidade disponível e tipo (Peça ou Insumo).
 
 ---
-Anterior: [Banco de dados - Cadastro](1_banco_de_dados_cadastro.md)
+Anterior: [Banco de dados - Cadastro](1_banco_de_dados_cadastro.md)  
 Próximo: [Banco de dados - Ordem de Serviço](3_banco_de_dados_ordem_servico.md)

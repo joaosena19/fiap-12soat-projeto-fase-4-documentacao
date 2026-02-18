@@ -32,5 +32,5 @@ Foi decidido replicar manualmente a classe `Ator` em cada repositório.
 * Risco de divergência entre as implementações se não houver atenção na manutenção.
 
 ---
-Anterior: [ADR 0006 - Geração de Token no Lambda e Forward Token](0006_adr_geracao_token_lambda_e_forward_token.md)
+Anterior: [ADR 0006 - Geração de Token no Lambda e Forward Token](0006_adr_geracao_token_lambda_e_forward_token.md)  
 Próximo: [ADR 0008 - Idempotência na Criação de OS Completa](0008_adr_idempotencia_criacao_os_completa.md)

@@ -36,5 +36,5 @@ Foi decidido utilizar Network Load Balancer (NLB) da AWS para comunicação entr
 * O tráfego entre serviços sai e volta pela rede da AWS ao invés de ficar apenas dentro do cluster.
 
 ---
-Anterior: [ADR 0001 - Divisão em Microsserviços](0001_adr_divisao_em_microsservicos.md)
+Anterior: [ADR 0001 - Divisão em Microsserviços](0001_adr_divisao_em_microsservicos.md)  
 Próximo: [ADR 0003 - SAGA Coreografada](0003_adr_saga_coreografada.md)
