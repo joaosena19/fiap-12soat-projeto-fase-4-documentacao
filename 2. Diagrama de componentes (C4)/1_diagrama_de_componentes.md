@@ -4,7 +4,7 @@ Este é um Diagrama de Componentes que cobre as visões HLD e LLD usando o model
 
 ## Diagrama interativo
 
-[Clique aqui](https://s.icepanel.io/4GWdcqJuVDZZjG/NsyI)
+[Clique aqui](https://s.icepanel.io/4GWdcqJuVDZZjG/5rah)
 
 ## Diagrama em imagens
 
@@ -24,13 +24,13 @@ Este é um Diagrama de Componentes que cobre as visões HLD e LLD usando o model
 
 ![Componente Cadastro](Anexos/c3_cadastro.svg)
 
-### 3° nível - Componentes - Estoque
-
-![Componente Estoque](Anexos/c3_estoque.svg)
-
 ### 3° nível - Componentes - Ordem de Serviço
 
 ![Componente Ordem de Serviço](Anexos/c3_ordem_servico.svg)
+
+### 3° nível - Componentes - Estoque
+
+![Componente Estoque](Anexos/c3_estoque.svg)
 
 ---
 Anterior: [Índice](../1.%20Entrega/2_indice.md)  
