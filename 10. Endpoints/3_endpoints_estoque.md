@@ -1,16 +1,16 @@
-# Documentação API Ordem Serviço - Endpoints
+# Documentação API Estoque - Endpoints
 
 ## Redocly
 
-Acesse pela [documentação Redoc disponível]() (necessário fazer download do arquivo) 
+Acesse pela [documentação Redoc disponível](Anexos/estoque_endpoints_redoc.html) (necessário fazer download do arquivo)
 
 ## Swagger OpenAPI JSON
 
-Acesso por [definição OpenAPI/Swagger]()
+Acesso por [definição OpenAPI/Swagger](Anexos/swagger_oficina_mecanica_fase_4_estoque.json)
 
 ## Markdown
 
-Acesse por [documentação em Markdown](
+Acesse por [documentação em Markdown](Anexos/estoque_api_docs_markdown.md)
 
 ---
-Anterior: [Autorização](../7.%20Autoriza%C3%A7%C3%A3o/1_autorizacao.md)  
+Anterior: [Endpoints - Cadastro](2_endpoints_cadastro.md)
