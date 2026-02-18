@@ -9,7 +9,6 @@ Veja o [relatório completo no SonarCloud](https://sonarcloud.io/project/overvie
 Todas as issues de severidade **Major** foram resolvidas. Algumas issues foram tratadas da seguinte forma:
 
 - **Falsos positivos:** Issues relacionadas a keys/secrets supostamente expostas foram marcadas como falso positivo, pois os valores são injetados via **variáveis de ambiente** e não estão hardcoded no código.
-- **Issues aceitas (preferência de estilo):** Foram aceitas issues como o uso do sufixo `Enum` em tipos enum e métodos com mais de 7 parâmetros, uma vez que o projeto utiliza **Builders** e **Factories** que justificam essa abordagem.
 
 ## Test Coverage
 

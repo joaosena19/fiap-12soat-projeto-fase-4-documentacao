@@ -34,4 +34,4 @@ Este é um Diagrama de Componentes que cobre as visões HLD e LLD usando o model
 
 ---
 Anterior: [Índice](../01.%20Entrega/2_indice.md)  
-Próximo: [Autenticação](../04.%20Autenticação/1_autenticacao.md)
+Próximo: [Banco de dados - Cadastro](../03.%20Banco%20de%20dados/1_banco_de_dados_cadastro.md)

@@ -132,7 +132,7 @@ Eventos da fase 3, sobre ciclo de vida da OS, também foram mantidos
 
 ## Dashboard New Relic
 ### Dashboard completo
-Este é o dashboard de monitoramento da aplicação no New Relic, que o mesmo padrão da fase 3, mas adicionando alguns widgets novos relacionados à SAGA, adiciona variável seletora de aplicação, e altera as queries para lideram com mais de uma aplicação.
+Este é o dashboard de monitoramento da aplicação no New Relic, que segue o mesmo padrão da fase 3, mas adicionando alguns widgets novos relacionados à SAGA, adiciona variável seletora de aplicação, e altera as queries para lidarem com mais de uma aplicação.
 
 ![Dashboard Geral](Anexos/dashboard_geral.png)
 
@@ -142,7 +142,7 @@ Estes foram os novos widgets criados para monitoramento da SAGA
 
 #### Mensagens da Saga (estoque)
 
-Monitora mensagens que estão sendo disparadas relacianadas as SAGAS. É criado na aplicação através dos Custom Events `SagaEstoqueConfirmado`, `SagaCompensacaoFalhaEstoque`, `SagaCompensacaoTimeout` e `SagaCompensacaoFalhaCritica`.
+Monitora mensagens que estão sendo disparadas relacionadas às SAGAS. É criado na aplicação através dos Custom Events `SagaEstoqueConfirmado`, `SagaCompensacaoFalhaEstoque`, `SagaCompensacaoTimeout` e `SagaCompensacaoFalhaCritica`.
 
 ![Mensagens da Saga](Anexos/saga_mensagens.png)
 
@@ -175,7 +175,7 @@ SELECT timestamp, ordemServicoId, erro, correlationId FROM SagaCompensacaoFalhaC
 
 ### Seletor de aplicação
 
-Foi adicionado uma variável seletora de aplicação, que filtra os widgets do dashboard para as aplicações escolhidas.
+Foi adicionada uma variável seletora de aplicação, que filtra os widgets do dashboard para as aplicações escolhidas.
 
 ![Seletor de Aplicação](Anexos/seletor_aplicacao.png)
 
@@ -183,9 +183,9 @@ Foi adicionado uma variável seletora de aplicação, que filtra os widgets do d
 
 Temos 3 alertas configurados no New Relic:
 
-1 - **Erro - Ordem de Serviço**, que notifica caso hajam erros envolvendo use cases da Ordem de Serviço  
+1 - **Erro - Ordem de Serviço**, que notifica caso haja erros envolvendo use cases da Ordem de Serviço  
 2 - **Saga - Alta Taxa de Rollbacks**, que notifica caso estejamos tendo muitas compensações via SAGA  
-3 - **Saga - Falha Crítica de Consistência**, que notifica caso acontece qualquer falha na compensação, pois é uma situação crítica que gerou dados inconsistentes nos bancos.
+3 - **Saga - Falha Crítica de Consistência**, que notifica caso aconteça qualquer falha na compensação, pois é uma situação crítica que gerou dados inconsistentes nos bancos.
 
 
 ![Alerta New Relic](Anexos/alerta_new_relic.png)
@@ -293,4 +293,4 @@ SELECT average(DuracaoMs) / 1000 / 60 / 60 as 'Horas' FROM OrdemServicoMudancaSt
 
 ---
 Anterior: [CI/CD](../05.%20CI%20%26%20CD/1_ci_cd.md)  
-Próximo: [Qualidade - Cadastro](../08.%20Testes%20e%20qualidade/1_qualidade_cadastro.md)
+Próximo: [Comunicação síncrona](../07.%20Comunicação%20entre%20serviços/1_comunicacao_sincrona.md)

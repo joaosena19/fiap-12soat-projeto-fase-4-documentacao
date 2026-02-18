@@ -24,5 +24,5 @@ A branch `main` está protegida contra push direto. Toda alteração precisa ser
 ![Proteção de Branches](../05.%20CI%20%26%20CD/Anexos/protecao_branch.png)
 
 ---
-Anterior: [Plano de monitoramento](../06.%20Plano%20de%20monitoramento/1_plano_de_monitoramento.md)  
+Anterior: [Comunicação assíncrona e SAGA](../07.%20Comunicação%20entre%20serviços/2_comunicacao_assincrona_saga.md)  
 Próximo: [Qualidade - Estoque](2_qualidade_estoque.md)
